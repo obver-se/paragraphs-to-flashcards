@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  web: 
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - .:/app
+      - ./llt_packages:/app/node_modules
+    working_dir: /app
+    command: bash -c "npm i && npm run docker-dev"
+    ports: 
+      - "8080:8080"
+        
+        
